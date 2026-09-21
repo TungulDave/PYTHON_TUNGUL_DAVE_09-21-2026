@@ -1,1 +1,102 @@
+#Section 3: Exponentiation anf Logarthms
+def exponent_menu():
+  prinbt_header("EXPONENTIAL AND LOGARITHMIC FUNCTIONS")
+  print ("""
+  1. Show the value of e
+  2. Compute exp(x)
+  3. Compute the natural log, log10, log 2 of a value
+  4. Compute log(x, base) with a custom base
+  5. compute pow(x, y) - built-in vs math.pow
+  0. Back to Main Menu
+  """)
+  choice  = safe_input("Enter your choice:").strip()
+
+  if choice == "1":
+    print(f"\nmath.e = {math.e}")
+
+  elif choice == "2":
+    x = get_float("Enter x:")
+
+  elif choice == "3":
+    x = get_float("Enter x:")
+    try:
+      print(f"\n log({x}) = {math.log(x)} (natural log, base)")
+      print(f" log10({x}) = {math.log10(x)")
+      print(f" log2({x}) = {math.log2(x)")
+    except ValueError:
+      print(" Logarithms require x > 0. Please try again.")
+
+  elif choice == "4":
+    x = get_float("Enter x (must be > 0):")
+    b = get_float("Enter the base b (must be > 0 and != 1):")
+    try:
+      print(f"\nlog({x}, base = b{b}) = {math.log(x, b)}")
+except (ValueErroe, ZeroDivisionErroe):
+print(" Invalid input for a logarithm with that base.")
+
+elif choice == "5":
+x = get_float("Enter the base x:")
+y = get_float("Enter the exponenet y:")
+print(f"\n built-in pow({x}, {y}) = {pow(x, y)}")
+print(f" math.pow({x}, {y}) = {math.pow(x, y)}")
+print(" (Note: pow() can return an int for the integer inputs;"
+     "math.pow() always returns a float.)")
+
+elif choice == "0":
+return
+else: 
+print("\nInvalid choice.")
+
+pause()
+
+#Section 4: GENERAL-PURPOSE MATH FUNSTIONS
+def general_menu():
+  print_header("GENERAL-PURPOSE MATH FUNCTIONS")
+  print("""
+  1. Compute ceil, floor, and trunc of a value
+  2. Compute a factorial
+  3. Compute the hypotenuse of a right triangle
+  0. Back to the Main Menu
+  """)
+  choice = safe_input("Enter your choice:").strip()
+
+  if choice == "1":
+    x = get_float("Enter a decimal number x:")
+    print(f"\n ceil({x}) = {math.ceil(x)}")
+    print(f" floor({x}) = {math.floor(x)}")
+    print(f" trunc({x}) = {math.trunc(x)}")
+
+  elif choice == "2":
+    n = get_int("Enter a non-negative whole number:")
+    try:
+      print(f"\n {n}! = {math.factorial(n)}")
+    except ValueError:
+      print(" factorial() requires a non-negative integer")
+
+  elif choice == "3":
+    x = get_float("Enter the lenght of leg x:")
+    y = get_float("Enter the lenght of leg y:")
+    print(f"\n hypot({x}, {y}) = {math.hypot(x, y)}")
+    print(f" (Same idea as sqrt({x}**2 + {y}***2) ="
+         f"{math.sqrt(x**2 + y**2)}, but hypot() is more precise.)")
+
+elif choice == "0":
+return
+else:
+print("\nInvalid choice")
+
+pause()
+
+#Section 5: THE RANDOM MODULE
+def random_menu():
+  print_header("THE RANDOM MODULE")
+  print("""
+
+  1. Set a seed (so result can be repeated)
+  2. Generate a number with randrange()
+  3. Generate a number with randint()
+  4. Pick a random item from a list with choice()
+  5. Draw several UNIQUE items from a list with choice()
+  0. Back to Main Menu
+  """)
 
